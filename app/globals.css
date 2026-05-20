@@ -1,4 +1,4 @@
-/* ── BRAND COLORS — MakeMyDocuments™ ──
+﻿/* ── BRAND COLORS — MakeMyDocuments™ ──
    Primary Blue : #2E68B1   (brand document blue)
    Brand Orange : #F7A418   (brand document orange)
    Near-black   : #010101
@@ -105,7 +105,7 @@ nav.scrolled {
 }
 
 .logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.logo-img { height: 140px; width: auto; display: block; object-fit: contain; }
+.logo-img { height: 66px; width: auto; display: block; object-fit: contain; }
 
 /* desktop links */
 .nav-links { display: flex; gap: 2px; list-style: none; align-items: center; }
@@ -896,8 +896,8 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   .footer-grid   { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 /* ── SERVICE PAGE SHARED ── */
-.svc-page { padding-top: 66px; }
-.svc-breadcrumb { background: var(--surf); border-bottom: 1px solid var(--line); padding: 12px 5%; font-size: 13px; color: var(--ink3); }
+.svc-page { padding-top: 67px; }
+.svc-breadcrumb { background: var(--surf); border-bottom: 1px solid var(--line); padding: 20px 5%; font-size: 13px; color: var(--ink3); }
 .svc-breadcrumb a { color: var(--teal); text-decoration: none; font-weight: 600; }
 .svc-breadcrumb a:hover { text-decoration: underline; }
 
@@ -906,6 +906,14 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   background: linear-gradient(135deg, var(--teal-dk) 0%, var(--teal) 60%, var(--teal2) 100%);
   padding: 80px 5%; position: relative; overflow: hidden;
 }
+.ins-hero-bc {
+  position: relative; z-index: 2;
+  font-size: 13px; color: rgba(255,255,255,.7);
+  padding-bottom: 16px; margin-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.ins-hero-bc a { color: rgba(255,255,255,.9); text-decoration: none; font-weight: 600; }
+.ins-hero-bc a:hover { text-decoration: underline; }
 .svc-hero-wrap .hero-pill {
   background: rgba(255,255,255,.12);
   border-color: rgba(255,255,255,.22);
@@ -2715,10 +2723,10 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 .nav-mob-apply:hover { background: var(--teal2); transform: translateY(-1px); }
 
 /* ── SERVICE PAGE SHARED ── */
-.svc-page { padding-top: 66px; }
+.svc-page { padding-top: 67px; }
 .svc-breadcrumb {
   background: var(--surf); border-bottom: 1px solid var(--line);
-  padding: 12px 5%; font-size: 13px; color: var(--ink3);
+  padding: 20px 5%; font-size: 13px; color: var(--ink3);
 }
 .svc-breadcrumb a { color: var(--teal); text-decoration: none; font-weight: 600; }
 .svc-breadcrumb a:hover { text-decoration: underline; }
@@ -3739,6 +3747,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   .nav-links     { display: none; }
   .nav-acts      { display: none; }
   .nav-ham       { display: flex; }
+  .logo-img      { height: 42px; }
   section        { padding: 56px 4%; }
   .hero          { padding: 106px 4% 0; }
   .hero-inner    { padding-bottom: 60px; }
@@ -4756,3 +4765,576 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   .pp-sec-body { padding: 18px 20px; }
   .pp-contact-strip { padding: 22px 20px; }
 }
+
+/* ── CAREERS PAGE ── */
+
+/* Hero */
+.car-hero {
+  padding: 110px 5% 80px;
+  background: var(--white);
+  position: relative; overflow: hidden;
+  min-height: 92vh; display: flex; align-items: center;
+}
+.car-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px; align-items: center;
+  position: relative; z-index: 2;
+}
+.car-hero-stats {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 32px;
+}
+.car-hs-item {
+  display: flex; align-items: center; gap: 7px;
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: var(--r10); padding: 9px 16px;
+  box-shadow: var(--s1);
+}
+.car-hs-val { font-size: 14px; font-weight: 800; color: var(--ink); }
+.car-hs-lbl { font-size: 11.5px; font-weight: 500; color: var(--ink4); }
+.car-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Hero card */
+.car-hero-card {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: var(--r20); box-shadow: var(--s3);
+  overflow: hidden; position: relative;
+}
+.car-hc-header {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--line2);
+}
+.au-dash-online {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; color: var(--green);
+  letter-spacing: .3px; margin-bottom: 8px;
+}
+.car-hc-title { font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 3px; }
+.car-hc-sub { font-size: 12px; color: var(--ink4); font-weight: 500; }
+.car-hc-list { padding: 8px 0; }
+.car-hc-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 22px; transition: background .15s;
+  cursor: pointer;
+}
+.car-hc-item:hover { background: var(--surf); }
+.car-hc-ico {
+  width: 34px; height: 34px; border-radius: var(--r10);
+  border: 1px solid; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.car-hc-info { flex: 1; min-width: 0; }
+.car-hc-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.car-hc-meta {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--ink4); font-weight: 500;
+}
+.car-hc-footer {
+  display: flex; align-items: center; gap: 7px;
+  padding: 14px 22px; border-top: 1px solid var(--line2);
+  background: var(--surf);
+}
+.car-hf-val { font-size: 13px; font-weight: 800; color: var(--ink); }
+.car-hf-lbl { font-size: 12px; color: var(--ink4); font-weight: 500; }
+
+/* Open Roles */
+.car-roles {
+  padding: 96px 5%;
+  background: var(--surf);
+}
+.car-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.car-role-card {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: var(--r20); padding: 28px 26px;
+  display: flex; flex-direction: column; gap: 0;
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease), border-color .2s;
+}
+.car-role-card:hover {
+  box-shadow: var(--s3); transform: translateY(-3px);
+  border-color: var(--teal-bd);
+}
+.car-role-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.car-role-ico {
+  width: 44px; height: 44px; border-radius: var(--r10);
+  border: 1px solid; display: flex; align-items: center; justify-content: center;
+}
+.car-role-dept {
+  font-size: 11px; font-weight: 700; letter-spacing: .4px;
+  padding: 5px 12px; border-radius: 50px; border: 1px solid;
+}
+.car-role-title {
+  font-size: 17px; font-weight: 800; color: var(--ink);
+  letter-spacing: -.3px; margin-bottom: 10px;
+}
+.car-role-desc {
+  font-size: 13.5px; color: var(--ink3); line-height: 1.65;
+  margin-bottom: 18px;
+}
+.car-role-meta {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 16px;
+}
+.car-meta-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; font-weight: 600; color: var(--ink3);
+  background: var(--surf); border: 1px solid var(--line);
+  padding: 5px 11px; border-radius: 50px;
+}
+.car-role-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+.car-tag {
+  font-size: 11px; font-weight: 600; color: var(--teal);
+  background: var(--teal-bg); border: 1px solid var(--teal-bd);
+  padding: 4px 10px; border-radius: 50px;
+}
+.car-apply-btn {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: auto;
+  font-family: inherit; font-size: 13.5px; font-weight: 700; color: var(--teal);
+  background: var(--teal-bg); border: 1.5px solid var(--teal-bd);
+  padding: 11px 20px; border-radius: var(--r10); text-decoration: none;
+  transition: all .2s var(--ease); cursor: pointer;
+}
+.car-apply-btn:hover {
+  background: var(--teal); color: #fff; border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(46,104,177,.3); transform: translateY(-1px);
+}
+.car-roles-note {
+  text-align: center; font-size: 14px; color: var(--ink3);
+  margin-top: 40px;
+}
+.car-mail-link {
+  color: var(--teal); font-weight: 700; text-decoration: none;
+  transition: opacity .15s;
+}
+.car-mail-link:hover { opacity: .75; }
+
+/* Perks */
+.car-why {
+  padding: 96px 5%;
+  background: var(--white);
+}
+.car-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.car-perk-card {
+  background: var(--surf); border: 1.5px solid var(--line);
+  border-radius: var(--r14); padding: 26px 22px;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.car-perk-card:hover {
+  box-shadow: var(--s2); transform: translateY(-2px);
+  border-color: var(--teal-bd);
+}
+.car-perk-ico {
+  width: 46px; height: 46px; border-radius: var(--r10);
+  background: var(--teal-bg); border: 1px solid var(--teal-bd);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.car-perk-title { font-size: 15px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+.car-perk-desc { font-size: 13px; color: var(--ink3); line-height: 1.65; }
+
+/* Values */
+.car-values {
+  padding: 96px 5%;
+  background: linear-gradient(160deg, var(--teal-dk) 0%, #1e4d8c 100%);
+  position: relative; overflow: hidden;
+}
+.car-values::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.car-values .eyebrow { color: var(--amber2); }
+.car-values .eyebrow::before { background: var(--amber); }
+.car-values h2 { color: #fff; }
+.car-values .sec-desc { color: rgba(255,255,255,.45); }
+.car-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  position: relative; z-index: 1;
+}
+.car-val-card {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r14); padding: 26px 22px;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.car-val-card:hover {
+  background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2);
+  transform: translateY(-2px);
+}
+.car-val-num {
+  font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--amber);
+  margin-bottom: 14px;
+}
+.car-val-ico {
+  width: 44px; height: 44px; border-radius: var(--r10);
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.car-val-card h3 { font-size: 15px; color: #fff; margin-bottom: 8px; }
+.car-val-desc { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.65; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .car-hero-inner { grid-template-columns: 1fr 380px; gap: 40px; }
+  .car-perks-grid { grid-template-columns: repeat(2, 1fr); }
+  .car-values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .car-hero { padding: 100px 5% 60px; min-height: auto; }
+  .car-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .car-hero-right { display: none; }
+  .car-roles-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .car-perks-grid { grid-template-columns: 1fr; }
+  .car-values-grid { grid-template-columns: 1fr; }
+  .car-hero-stats { gap: 8px; }
+}
+
+/* ── TWO-WHEELER INSURANCE PAGE ── */
+
+/* Hero */
+.twi-hero {
+  background: linear-gradient(135deg, var(--teal-dk) 0%, var(--teal) 60%, var(--teal2) 100%);
+  padding: 100px 5% 60px;
+  position: relative; overflow: hidden;
+}
+.twi-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.twi-hero-content {
+  display: grid; grid-template-columns: 1fr 440px;
+  gap: 56px; align-items: flex-start;
+  position: relative; z-index: 1;
+}
+.twi-hero-left { padding-top: 16px; }
+.twi-hero-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--teal-dk);
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  padding: 12px 24px; border-radius: var(--r10);
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  transition: all .2s var(--ease);
+}
+.twi-hero-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+
+/* Info card on hero */
+.twi-info-card {
+  background: #fff; border-radius: var(--r20);
+  box-shadow: 0 16px 56px rgba(0,0,0,.14);
+  padding: 28px 24px 20px;
+  display: flex; flex-direction: column; gap: 0;
+}
+.twi-card-section { display: flex; gap: 0; margin-bottom: 4px; }
+.twi-card-icon-wrap {
+  width: 40px; height: 40px; border-radius: var(--r10);
+  background: var(--teal-bg); border: 1px solid var(--teal-bd);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-right: 12px;
+}
+.twi-card-line {
+  width: 2px; background: var(--line);
+  flex-shrink: 0; margin: 40px 0 0 19px;
+  min-height: 40px;
+}
+.twi-card-line.last { background: transparent; }
+.twi-card-body { flex: 1; padding-bottom: 16px; }
+.twi-card-title {
+  font-size: 13px; font-weight: 800; color: var(--teal-dk);
+  margin-bottom: 8px; margin-top: 8px;
+}
+.twi-card-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.twi-card-list li {
+  display: flex; align-items: flex-start; gap: 7px;
+  font-size: 13px; color: var(--ink3); line-height: 1.5;
+}
+.twi-card-list li::before {
+  content: '•'; color: var(--teal); font-size: 14px;
+  line-height: 1.3; flex-shrink: 0;
+}
+.twi-get-quotes-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--amber); color: #fff;
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  padding: 12px 32px; border-radius: var(--r10);
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(247,164,24,.4);
+  transition: all .2s var(--ease);
+  margin-top: 8px;
+}
+.twi-get-quotes-btn:hover { background: var(--amber2); transform: translateY(-1px); }
+
+/* Article content */
+.twi-article { max-width: 900px; padding: 64px 0; }
+.twi-art-h2 {
+  font-size: clamp(20px,2.2vw,28px); font-weight: 800; color: var(--teal);
+  letter-spacing: -.4px; margin-bottom: 20px; line-height: 1.25;
+}
+.twi-art-h3 {
+  font-size: 18px; font-weight: 800; color: var(--ink);
+  margin: 40px 0 12px; letter-spacing: -.2px;
+}
+.twi-art-p {
+  font-size: 15px; color: var(--ink3); line-height: 1.75;
+  margin-bottom: 16px;
+}
+.twi-art-ul {
+  list-style: none; padding: 0; margin: 0 0 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.twi-art-ul li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 15px; color: var(--ink3); line-height: 1.65;
+}
+.twi-art-ul li::before {
+  content: '•'; color: var(--teal); font-size: 18px;
+  line-height: 1.3; flex-shrink: 0;
+}
+
+/* Why online grid */
+.twi-why-grid {
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 32px;
+}
+.twi-why-card {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--surf); border: 1px solid var(--line);
+  border-radius: var(--r10); padding: 12px 16px;
+}
+.twi-why-ico {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: var(--teal-bg); border: 1px solid var(--teal-bd);
+  border-radius: var(--r6);
+  display: flex; align-items: center; justify-content: center;
+}
+.twi-why-label { font-size: 14px; font-weight: 700; color: var(--ink); }
+.twi-why-sep { color: var(--ink4); }
+.twi-why-desc { font-size: 14px; color: var(--ink3); }
+
+/* Types grid */
+.twi-types-grid {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 32px;
+}
+.twi-type-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  border: 1.5px solid; border-radius: var(--r10); padding: 16px 18px;
+}
+.twi-type-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 6px;
+}
+.twi-type-label {
+  font-size: 14px; font-weight: 800; margin-bottom: 4px;
+}
+.twi-type-desc { font-size: 13.5px; color: var(--ink3); line-height: 1.65; }
+
+/* CTA box */
+.twi-cta-box {
+  display: flex; align-items: flex-start; gap: 18px;
+  background: var(--amber-bg); border: 1.5px solid var(--amber-bd);
+  border-radius: var(--r14); padding: 24px 22px;
+  margin-top: 40px;
+}
+.twi-cta-title { font-size: 17px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+.twi-cta-desc { font-size: 14px; color: var(--ink3); line-height: 1.7; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .twi-hero-content { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 600px) {
+  .twi-hero { padding: 90px 5% 40px; }
+  .twi-article { padding: 40px 0; }
+}
+
+/* ── TWO-WHEELER INSURANCE FORM PAGE — styles handled by pf5-* classes ── */
+.twf-page-placeholder {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--teal-dk) 0%, var(--teal) 60%, var(--teal2) 100%);
+  padding: 80px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.twf-back-arrow {
+  position: fixed;
+  top: 80px; left: 20px;
+  width: 42px; height: 42px;
+  background: #111; color: #fff;
+  border: none; border-radius: var(--r10);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 10;
+  transition: background .2s;
+}
+.twf-back-arrow:hover { background: #333; }
+
+.twf-outer {
+  width: 100%; max-width: 780px;
+  margin-top: 16px;
+}
+
+/* Card */
+.twf-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 48px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+.twf-card-scroll { max-height: calc(100vh - 160px); overflow-y: auto; }
+
+/* Step bar */
+.twf-stepbar {
+  display: flex; align-items: center;
+  margin-bottom: 32px;
+}
+.twf-step-wrap { display: flex; align-items: center; flex: 1; }
+.twf-step-wrap:last-child { flex: none; }
+.twf-step-circle {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #d1d5db; color: #fff;
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background .3s;
+}
+.twf-step-circle.active { background: var(--teal); }
+.twf-step-line {
+  flex: 1; height: 2px;
+  background: #d1d5db;
+  margin: 0 4px;
+  transition: background .3s;
+}
+.twf-step-line.active { background: var(--teal); }
+
+/* Titles */
+.twf-subtitle {
+  text-align: center; font-size: 13.5px; color: var(--ink3);
+  margin-bottom: 6px;
+}
+.twf-title {
+  font-size: clamp(20px, 3vw, 26px); font-weight: 800;
+  color: var(--teal); text-align: center;
+  margin-bottom: 28px; letter-spacing: -.3px;
+}
+.twf-req { color: #e11d48; margin-left: 2px; }
+
+/* Radio */
+.twf-radio-group { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.twf-radio-label {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 15px; color: var(--ink); cursor: pointer;
+}
+.twf-radio-label input[type="radio"] {
+  width: 18px; height: 18px; accent-color: var(--teal); cursor: pointer;
+}
+.twf-radio-text { font-size: 15px; color: var(--ink); }
+
+/* Fields */
+.twf-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.twf-label { font-size: 13.5px; font-weight: 600; color: var(--ink2); }
+.twf-input {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid #d1d5db; border-radius: var(--r10);
+  font-family: inherit; font-size: 14.5px; color: var(--ink);
+  background: #fff; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.twf-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(46,104,177,.12); }
+.twf-pincode:focus { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(247,164,24,.15); }
+.twf-textarea { resize: vertical; min-height: 80px; }
+.twf-select { appearance: auto; cursor: pointer; }
+
+/* Buttons */
+.twf-actions { display: flex; gap: 12px; margin-top: 8px; }
+.twf-actions-split { justify-content: space-between; }
+.twf-btn-amber {
+  background: var(--amber); color: #fff;
+  border: none; border-radius: var(--r10);
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  padding: 12px 32px; cursor: pointer;
+  transition: background .2s, transform .15s;
+  box-shadow: 0 4px 14px rgba(247,164,24,.35);
+}
+.twf-btn-amber:hover:not(:disabled) { background: var(--amber2); transform: translateY(-1px); }
+.twf-btn-amber:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.twf-btn-blue {
+  background: var(--teal); color: #fff;
+  border: none; border-radius: var(--r10);
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  padding: 12px 32px; cursor: pointer; text-decoration: none;
+  transition: background .2s; display: inline-block;
+}
+.twf-btn-blue:hover { background: var(--teal2); }
+
+/* OTP */
+.twf-otp-row { display: flex; gap: 14px; justify-content: center; margin: 16px 0; }
+.twf-otp-box {
+  width: 52px; height: 58px; border-radius: var(--r10);
+  border: 1.5px solid #d1d5db;
+  font-size: 22px; font-weight: 700; text-align: center; color: var(--ink);
+  outline: none; transition: border-color .2s;
+}
+.twf-otp-box:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(46,104,177,.12); }
+.twf-resend-text { text-align: center; font-size: 13px; color: var(--ink3); margin-top: 8px; }
+.twf-resend-btn {
+  background: none; border: none; color: var(--teal);
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  cursor: pointer; text-decoration: underline;
+}
+
+/* Success */
+.twf-success-card { text-align: center; padding: 56px 48px; }
+.twf-success-ico {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--green); display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(5,150,105,.35);
+}
+.twf-success-title { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 12px; }
+.twf-success-sub { font-size: 15px; color: var(--ink3); line-height: 1.65; margin-bottom: 4px; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .twf-card { padding: 28px 20px; }
+  .twf-back-arrow { top: 72px; left: 12px; }
+  .twf-otp-box { width: 44px; height: 50px; font-size: 18px; }
+}
+
+/* ── FOUR-WHEELER INSURANCE — IDV table ── */
+.fwi-idv-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13.5px; margin: 8px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r6); overflow: hidden;
+}
+.fwi-idv-table th {
+  background: var(--surf); color: var(--ink2);
+  font-weight: 700; text-align: left;
+  padding: 10px 14px; border-bottom: 1px solid var(--line);
+}
+.fwi-idv-table td {
+  padding: 9px 14px; color: var(--ink3);
+  border-bottom: 1px solid var(--line2);
+}
+.fwi-idv-table tr:last-child td { border-bottom: none; }
+.fwi-idv-table td:last-child { font-weight: 600; color: var(--teal); }

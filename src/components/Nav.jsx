@@ -176,16 +176,6 @@ export default function Nav() {
           </Link>
         </div>
 
-        {/* Sticky CTAs */}
-        <div className="nav-mob-ctas">
-          <a href="https://wa.me/919980097315" className="nav-mob-wa" target="_blank" rel="noreferrer" onClick={closeAll}>
-            <WaIcon /> WhatsApp Us
-          </a>
-          <a href="#" className="nav-mob-apply"
-            onClick={(e) => { e.preventDefault(); closeAll(); router.push('/'); setTimeout(() => scrollTo('apply'), 100) }}>
-            Apply Now â†’
-          </a>
-        </div>
 
       </div>
     </>

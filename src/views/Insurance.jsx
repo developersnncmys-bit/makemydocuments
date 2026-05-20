@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -15,7 +15,7 @@ const I = ({ icon: Icon, size = 22, color = 'var(--teal)' }) => (
   <Icon size={size} color={color} strokeWidth={1.8} />
 )
 
-/* â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â"€â"€â"€ Data â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 
 const TYPES = [
   { Icon: Bike,       label: 'Two – Wheeler'      },
@@ -144,24 +144,25 @@ function FAQItem({ q, a }) {
   )
 }
 
-/* â”€â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* â"€â"€â"€ Page â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
 export default function Insurance() {
   return (
     <div className="svc-page">
 
+
+      {/* â"€â"€ Hero â"€â"€ */}
       {/* Breadcrumb */}
       <div className="svc-breadcrumb">
         <div className="mx"><Link href="/">Home</Link> / Insurance</div>
       </div>
 
-      {/* â”€â”€ Hero â”€â”€ */}
       <div className="svc-hero-wrap">
         <div className="hero-bg" style={{ position: 'absolute', inset: 0 }}>
           <div className="dots" />
           <div className="blob1" />
           <div className="blob2" />
         </div>
-        <div className="mx svc-hero-content">
+          <div className="mx svc-hero-content">
           <div className="svc-hero-left">
             <div className="hero-pill">
               <span className="live-dot" />
@@ -193,7 +194,7 @@ export default function Insurance() {
         <div className="svc-hero-wave" />
       </div>
 
-      {/* â”€â”€ Pick Type â”€â”€ */}
+      {/* â"€â"€ Pick Type â"€â"€ */}
       <section className="ins-section-white">
         <div className="mx">
           <div className="shead center">
@@ -201,23 +202,50 @@ export default function Insurance() {
             <h2>Pick the Type of Insurance</h2>
           </div>
           <div className="ins-types-grid">
-            {TYPES.map(({ Icon, label }) => (
-              <div key={label} className="ins-type-v2">
-                <div className="ins-type-v2-top" />
-                <div className="ins-type-v2-icon">
-                  <I icon={Icon} size={30} color="var(--teal)" />
+            {TYPES.map(({ Icon, label }) => {
+              const isTwoWheeler  = label === 'Two – Wheeler'
+              const isFourWheeler = label === 'Four – Wheeler'
+              const isCommercial  = label === 'Commercial\nVehicle'
+              return (
+                <div key={label} className="ins-type-v2">
+                  <div className="ins-type-v2-top" />
+                  <div className="ins-type-v2-icon">
+                    <I icon={Icon} size={30} color="var(--teal)" />
+                  </div>
+                  <h3 className="ins-type-v2-label">{label}</h3>
+                  {isTwoWheeler ? (
+                    <Link href="/two-wheeler-insurance" className="ins-type-v2-btn">
+                      Get Quotes →
+                    </Link>
+                  ) : isFourWheeler ? (
+                    <Link href="/four-wheeler-insurance" className="ins-type-v2-btn">
+                      Get Quotes →
+                    </Link>
+                  ) : isCommercial ? (
+                    <Link href="/commercial-vehicle-insurance" className="ins-type-v2-btn">
+                      Get Quotes →
+                    </Link>
+                  ) : label === 'Health' ? (
+                    <Link href="/health-insurance" className="ins-type-v2-btn">
+                      Get Quotes →
+                    </Link>
+                  ) : label === 'Life' ? (
+                    <Link href="/life-insurance" className="ins-type-v2-btn">
+                      Get Quotes →
+                    </Link>
+                  ) : (
+                    <a href="https://wa.me/919980097315" className="ins-type-v2-btn" target="_blank" rel="noreferrer">
+                      Get Quotes →
+                    </a>
+                  )}
                 </div>
-                <h3 className="ins-type-v2-label">{label}</h3>
-                <a href="https://wa.me/919980097315" className="ins-type-v2-btn" target="_blank" rel="noreferrer">
-                  Get Quotes →
-                </a>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* â”€â”€ Associated With â”€â”€ */}
+      {/* â"€â"€ Associated With â"€â"€ */}
       <section className="ins-partners-amber">
         <div className="mx">
           <div className="shead center" style={{ marginBottom: 40 }}>
@@ -238,7 +266,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Reviews â”€â”€ */}
+      {/* â"€â"€ Reviews â"€â"€ */}
       <section className="ins-section-white">
         <div className="mx">
           <div className="shead center">
@@ -249,7 +277,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Insurance Services Intro â”€â”€ */}
+      {/* â"€â"€ Insurance Services Intro â"€â"€ */}
       <section className="ins-section-surf">
         <div className="mx ins-content-wrap">
           <div className="shead">
@@ -262,7 +290,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Benefits â”€â”€ */}
+      {/* â"€â"€ Benefits â"€â"€ */}
       <section className="ins-section-white">
         <div className="mx">
           <div className="shead">
@@ -287,7 +315,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Types of Insurance â”€â”€ */}
+      {/* â"€â"€ Types of Insurance â"€â"€ */}
       <section className="ins-section-surf">
         <div className="mx">
           <div className="shead">
@@ -310,7 +338,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Why Choose Us â”€â”€ */}
+      {/* â"€â"€ Why Choose Us â"€â"€ */}
       <section className="ins-section-white">
         <div className="mx">
           <div className="shead">
@@ -334,7 +362,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ How It Works + Docs â”€â”€ */}
+      {/* â"€â"€ How It Works + Docs â"€â"€ */}
       <section className="ins-section-surf">
         <div className="mx">
           <div className="sol-layout">
@@ -381,7 +409,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ FAQs â”€â”€ */}
+      {/* â"€â"€ FAQs â"€â"€ */}
       <section className="ins-section-white">
         <div className="mx">
           <div className="shead center">
@@ -395,7 +423,7 @@ export default function Insurance() {
         </div>
       </section>
 
-      {/* â”€â”€ Keywords â”€â”€ */}
+      {/* â"€â"€ Keywords â"€â"€ */}
       <section style={{ background: 'var(--surf)', padding: '48px 5%', borderTop: '1px solid var(--line)' }}>
         <div className="mx">
           {[

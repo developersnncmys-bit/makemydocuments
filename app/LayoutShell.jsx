@@ -23,6 +23,9 @@ const NO_FOOTER_SET = new Set([
   '/oman-visa', '/oman-visa-form', '/morocco-visa', '/morocco-visa-form',
   '/bahrain-visa', '/bahrain-visa-form', '/qatar-visa', '/qatar-visa-form',
   '/russia-visa', '/russia-visa-form', '/uzbekistan-visa', '/uzbekistan-visa-form',
+  '/two-wheeler-insurance-form',
+  '/four-wheeler-insurance-form',
+  '/health-insurance-form',
 ])
 
 const NO_WA_FAB_SET = new Set([
@@ -42,6 +45,9 @@ const NO_WA_FAB_SET = new Set([
   '/oman-visa', '/oman-visa-form', '/morocco-visa', '/morocco-visa-form',
   '/bahrain-visa', '/bahrain-visa-form', '/qatar-visa', '/qatar-visa-form',
   '/russia-visa', '/russia-visa-form', '/uzbekistan-visa', '/uzbekistan-visa-form',
+  '/two-wheeler-insurance-form',
+  '/four-wheeler-insurance-form',
+  '/health-insurance-form',
 ])
 
 export default function LayoutShell({ children }) {

@@ -12,11 +12,9 @@ const SERVICES = [
 ]
 
 const COMPANY = [
-  { label: 'About Us',       path: '/about-us'   },
-  { label: 'Blogs',          path: '/blogs'       },
-  { label: 'Contact Us',     path: '/contact-us'  },
-  { label: 'How It Works',   path: '/#apply'      },
-  { label: 'Client Reviews', path: '/#reviews'    },
+  { label: 'About Us',   path: '/about-us'  },
+  { label: 'Blogs',      path: '/blogs'     },
+  { label: 'Contact Us', path: '/contact-us'},
 ]
 
 // Pages that are fully built
@@ -62,7 +60,7 @@ export default function Footer() {
                 ? <li key={label}><a href={path} target="_blank" rel="noreferrer">{label}</a></li>
                 : <li key={label}><Link href={path}>{label}</Link></li>
             )}
-            <li><a href="#">Careers</a></li>
+            <li><Link href="/careers">Careers</Link></li>
           </ul>
         </div>
 
