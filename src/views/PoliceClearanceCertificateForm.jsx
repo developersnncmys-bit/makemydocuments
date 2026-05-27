@@ -42,20 +42,7 @@ const STATES = [
   'Ladakh','Lakshadweep','Puducherry',
 ]
 
-const PINCODE_PREFIXES = {
-  'Andhra Pradesh':[50,51,52,53],'Arunachal Pradesh':[79],'Assam':[78],
-  'Bihar':[80,81,82,83,84,85],'Chhattisgarh':[49],'Goa':[40],
-  'Gujarat':[36,37,38,39],'Haryana':[12,13],'Himachal Pradesh':[17],
-  'Jharkhand':[81,82,83,84,85],'Karnataka':[56,57,58,59],'Kerala':[67,68,69],
-  'Madhya Pradesh':[45,46,47,48],'Maharashtra':[40,41,42,43,44],
-  'Manipur':[79],'Meghalaya':[79],'Mizoram':[79],'Nagaland':[79],
-  'Odisha':[75,76,77],'Punjab':[14,15,16],'Rajasthan':[30,31,32,33,34],
-  'Sikkim':[73],'Tamil Nadu':[60,61,62,63,64],'Telangana':[50],'Tripura':[79],
-  'Uttar Pradesh':[20,21,22,23,24,25,26,27,28],'Uttarakhand':[24,26],
-  'West Bengal':[70,71,72,73,74],'Andaman and Nicobar Islands':[74],
-  'Chandigarh':[16],'Dadra and Nagar Haveli and Daman and Diu':[39],
-  'Delhi':[11],'Jammu and Kashmir':[18,19],'Ladakh':[19],'Lakshadweep':[68],'Puducherry':[60],
-}
+const PINCODE_PREFIXES = {} // state-pincode matching disabled — only the 6-digit format is required
 
 const validPin = (pin, state) => {
   if (!pin || pin.length !== 6 || !state || !PINCODE_PREFIXES[state]) return true
@@ -455,7 +442,7 @@ export default function PoliceClearanceCertificateForm() {
   return (
     <div className="pf5-page">
       <div className="pf5-breadcrumb">
-        <Link href="/">Home</Link><span> / </span><Link href="/police-clearance">Police Clearance Certificate</Link><span> / </span><span>Apply</span>
+        <Link href="/">Home</Link><span> / </span><Link href="/police-clearance">Police Clearance Certificate</Link><span> / </span><span>Form</span>
       </div>
       <div className="pf5-card">
 

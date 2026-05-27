@@ -352,6 +352,7 @@ h4 { font-size: 13px; font-weight: 700; color: var(--ink2); letter-spacing: .1px
   display: flex; align-items: center; gap: 12px; margin-bottom: 9px;
   cursor: pointer; transition: all .22s var(--ease);
   position: relative; overflow: hidden;
+  text-decoration: none; color: inherit;
 }
 .pcard::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
@@ -825,7 +826,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 }
 .f-brand { display: flex; flex-direction: column; align-items: flex-start; }
 .f-logo-img {
-  height: 100px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   margin-bottom: 6px;
@@ -2827,7 +2828,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 .pf5-page {
   min-height: 100vh;
   background: #EEF2FF;
-  padding: 80px 16px 60px;
+  padding: 80px 16px 24px;
   display: flex; flex-direction: column; align-items: center;
 }
 .pf5-breadcrumb {
@@ -2842,6 +2843,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 /* Card */
 .pf5-card {
   max-width: 600px; width: 100%;
+  max-height: calc(100vh - 140px);
   background: #fff; border-radius: 24px;
   box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 12px 48px rgba(46,104,177,.12);
   overflow: hidden;
@@ -2886,7 +2888,10 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 .pf5-sub   { font-size: 13.5px; color: #7A8AAA; text-align: center; padding: 6px 32px 0; line-height: 1.5; }
 
 /* Content */
-.pf5-content { padding: 20px 20px 12px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.pf5-content { padding: 20px 20px 12px; display: flex; flex-direction: column; gap: 14px; flex: 1; overflow-y: auto; min-height: 0; }
+.pf5-content::-webkit-scrollbar { width: 6px; }
+.pf5-content::-webkit-scrollbar-thumb { background: #D0D8EE; border-radius: 3px; }
+.pf5-content::-webkit-scrollbar-track { background: transparent; }
 
 /* Plan cards (step 1) */
 .pf5-plan-list { display: flex; flex-direction: column; gap: 10px; }
@@ -2895,6 +2900,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   padding: 14px 16px; border: 1.5px solid #E4E8F4;
   border-radius: 14px; background: #FAFBFF; cursor: pointer;
   transition: border-color .18s, background .18s, box-shadow .18s;
+  text-decoration: none; color: inherit;
 }
 .pf5-plan:hover { border-color: #B8C8E8; box-shadow: 0 2px 12px rgba(46,104,177,.08); }
 .pf5-plan.sel   { box-shadow: 0 4px 16px rgba(46,104,177,.1); }
@@ -3066,7 +3072,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 .pf5-cta-btn.pf5-pay:hover { box-shadow: 0 6px 22px rgba(22,163,74,.4); }
 
 .pf5-back-link {
-  display: flex; align-items: center; justify-content: flex-start; gap: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
   background: none; border: none; font-family: inherit;
   font-size: 13px; font-weight: 600; color: #8A98B8;
   cursor: pointer; transition: color .18s;

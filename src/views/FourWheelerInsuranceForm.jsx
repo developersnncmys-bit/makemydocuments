@@ -220,7 +220,7 @@ export default function FourWheelerInsuranceForm() {
         <span> / </span>
         <Link href="/four-wheeler-insurance">Four-Wheeler Insurance</Link>
         <span> / </span>
-        <span>Get Quote</span>
+        <span>Form</span>
       </div>
       <div className="pf5-card">
 

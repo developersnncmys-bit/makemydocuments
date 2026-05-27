@@ -29,44 +29,7 @@ const SERVICE_OPTIONS = [
 const BANKS  = ['State Bank of India','HDFC Bank','ICICI Bank','Axis Bank','Kotak Mahindra Bank','Punjab National Bank','Bank of Baroda','Canara Bank','IndusInd Bank','Yes Bank']
 
 // Valid pincode first-2-digit prefixes per state
-const PINCODE_PREFIXES = {
-  'Andhra Pradesh':                            [50,51,52,53],
-  'Arunachal Pradesh':                         [79],
-  'Assam':                                     [78],
-  'Bihar':                                     [80,81,82,83,84,85],
-  'Chhattisgarh':                              [49],
-  'Goa':                                       [40],
-  'Gujarat':                                   [36,37,38,39],
-  'Haryana':                                   [12,13],
-  'Himachal Pradesh':                          [17],
-  'Jharkhand':                                 [81,82,83,84,85],
-  'Karnataka':                                 [56,57,58,59],
-  'Kerala':                                    [67,68,69],
-  'Madhya Pradesh':                            [45,46,47,48],
-  'Maharashtra':                               [40,41,42,43,44],
-  'Manipur':                                   [79],
-  'Meghalaya':                                 [79],
-  'Mizoram':                                   [79],
-  'Nagaland':                                  [79],
-  'Odisha':                                    [75,76,77],
-  'Punjab':                                    [14,15,16],
-  'Rajasthan':                                 [30,31,32,33,34],
-  'Sikkim':                                    [73],
-  'Tamil Nadu':                                [60,61,62,63,64],
-  'Telangana':                                 [50],
-  'Tripura':                                   [79],
-  'Uttar Pradesh':                             [20,21,22,23,24,25,26,27,28],
-  'Uttarakhand':                               [24,26],
-  'West Bengal':                               [70,71,72,73,74],
-  'Andaman and Nicobar Islands':               [74],
-  'Chandigarh':                                [16],
-  'Dadra and Nagar Haveli and Daman and Diu':  [39],
-  'Delhi':                                     [11],
-  'Jammu and Kashmir':                         [18,19],
-  'Ladakh':                                    [19],
-  'Lakshadweep':                               [68],
-  'Puducherry':                                [60],
-}
+const PINCODE_PREFIXES = {} // state-pincode matching disabled — only the 6-digit format is required
 
 const isPincodeValidForState = (pin, state) => {
   if (!pin || pin.length !== 6 || !state || !PINCODE_PREFIXES[state]) return true
@@ -121,7 +84,8 @@ export default function PanCardForm() {
   }, [])
 
   // Form fields
-  const [service,   setService]   = useState('')
+  const [service,    setService]    = useState('')
+  const [existingPan, setExistingPan] = useState('')
   const [name,      setName]      = useState('')
   const [gender,    setGender]    = useState('')
   const [dob,       setDob]       = useState('')
@@ -198,6 +162,8 @@ export default function PanCardForm() {
   const validateForStep = (s) => {
     if (s === 1 && !service) return { msg: 'Please select a service to continue.', step: 1 }
     if (s === 2) {
+      if (service !== 'New Pan Card' && !/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(existingPan))
+        return { msg: 'Please enter a valid 10-character PAN number (e.g. ABCDE1234F).', step: 2 }
       if (!name)   return { msg: 'Please enter your full name.',   step: 2 }
       if (!gender) return { msg: 'Please select your gender.',     step: 2 }
       if (!dob)    return { msg: 'Please enter your date of birth.', step: 2 }
@@ -205,12 +171,12 @@ export default function PanCardForm() {
       if (dd >= td) return { msg: 'Date of birth cannot be today or a future date.', step: 2 }
       const minAge = new Date(td); minAge.setFullYear(td.getFullYear() - 18)
       if (dd > minAge) return { msg: 'Applicant must be at least 18 years old.', step: 2 }
+      if (!aadhaar || aadhaar.length !== 12) return { msg: 'Please enter a valid 12-digit Aadhaar number.', step: 2 }
     }
     if (s === 3) {
       if (!father)    return { msg: "Please enter father's name.",              step: 3 }
       if (!mother)    return { msg: "Please enter mother's name.",              step: 3 }
       if (!printName) return { msg: 'Please select name to print on PAN card.', step: 3 }
-      if (!aadhaar || aadhaar.length !== 12) return { msg: 'Please enter a valid 12-digit Aadhaar number.', step: 3 }
     }
     if (s === 4) {
       if (!house)    return { msg: 'Please enter your address.',    step: 4 }
@@ -498,7 +464,7 @@ export default function PanCardForm() {
   return (
     <div className="pf5-page">
       <div className="pf5-breadcrumb">
-        <Link href="/">Home</Link><span> / </span><Link href="/pan-card">PAN Card</Link><span> / </span><span>Apply</span>
+        <Link href="/">Home</Link><span> / </span><Link href="/pan-card">PAN Card</Link><span> / </span><span>Form</span>
       </div>
       <div className="pf5-card">
 
@@ -556,6 +522,15 @@ export default function PanCardForm() {
           {/* Step 2 – Personal */}
           {step === 2 && (
             <>
+              {service !== 'New Pan Card' && (
+                <Field label="Existing PAN Card Number">
+                  <ValidInp valid={/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(existingPan)} count={existingPan.length > 0 && existingPan.length < 10 ? `${existingPan.length}/10` : null}>
+                    <input className="pf5-inp" type="text" placeholder="ABCDE1234F" maxLength={10}
+                      value={existingPan}
+                      onChange={e => { setExistingPan(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'')); setError('') }} />
+                  </ValidInp>
+                </Field>
+              )}
               <Field label="Full Name (As Per Aadhaar)">
                 <ValidInp valid={name.trim().length > 0}>
                   <input className="pf5-inp" type="text" placeholder="Enter your full name" value={name} onChange={e => setName(e.target.value)} />
@@ -586,6 +561,12 @@ export default function PanCardForm() {
                   )
                 })()}
               </Field>
+              <Field label="Aadhaar Number">
+                <ValidInp valid={aadhaar.length === 12} count={aadhaar.length > 0 ? `${aadhaar.length}/12` : null}>
+                  <input className="pf5-inp" type="text" placeholder="12-digit Aadhaar number" maxLength={12}
+                    value={aadhaar} onChange={e => setAadhaar(e.target.value.replace(/\D/g,''))} />
+                </ValidInp>
+              </Field>
             </>
           )}
 
@@ -611,12 +592,6 @@ export default function PanCardForm() {
                     </label>
                   ))}
                 </div>
-              </Field>
-              <Field label="Aadhaar Number">
-                <ValidInp valid={aadhaar.length === 12} count={aadhaar.length > 0 ? `${aadhaar.length}/12` : null}>
-                  <input className="pf5-inp" type="text" placeholder="12-digit Aadhaar number" maxLength={12}
-                    value={aadhaar} onChange={e => setAadhaar(e.target.value.replace(/\D/g,''))} />
-                </ValidInp>
               </Field>
             </>
           )}

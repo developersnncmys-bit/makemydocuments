@@ -229,7 +229,7 @@ export default function LifeInsuranceForm() {
         <span> / </span>
         <Link href="/life-insurance">Life Insurance</Link>
         <span> / </span>
-        <span>Get Quote</span>
+        <span>Form</span>
       </div>
       <div className="pf5-card">
 
