@@ -1,7 +1,9 @@
 ﻿'use client'
 
 import { useState, useMemo, useRef, useEffect } from 'react'
+import useStepBackButton from '../hooks/useStepBackButton'
 import Link from 'next/link'
+import { getDistricts } from '../data/locationData'
 import {
   FileText, User, MapPin, Check, AlertCircle, Wallet, IndianRupee, CreditCard,
   Building2, ChevronRight, ChevronLeft, ArrowLeft,
@@ -42,20 +44,7 @@ const STATES = [
   'Ladakh','Lakshadweep','Puducherry',
 ]
 
-const PINCODE_PREFIXES = {
-  'Andhra Pradesh':[50,51,52,53],'Arunachal Pradesh':[79],'Assam':[78],
-  'Bihar':[80,81,82,83,84,85],'Chhattisgarh':[49],'Goa':[40],
-  'Gujarat':[36,37,38,39],'Haryana':[12,13],'Himachal Pradesh':[17],
-  'Jharkhand':[81,82,83,84,85],'Karnataka':[56,57,58,59],'Kerala':[67,68,69],
-  'Madhya Pradesh':[45,46,47,48],'Maharashtra':[40,41,42,43,44],
-  'Manipur':[79],'Meghalaya':[79],'Mizoram':[79],'Nagaland':[79],
-  'Odisha':[75,76,77],'Punjab':[14,15,16],'Rajasthan':[30,31,32,33,34],
-  'Sikkim':[73],'Tamil Nadu':[60,61,62,63,64],'Telangana':[50],'Tripura':[79],
-  'Uttar Pradesh':[20,21,22,23,24,25,26,27,28],'Uttarakhand':[24,26],
-  'West Bengal':[70,71,72,73,74],'Andaman and Nicobar Islands':[74],
-  'Chandigarh':[16],'Dadra and Nagar Haveli and Daman and Diu':[39],
-  'Delhi':[11],'Jammu and Kashmir':[18,19],'Ladakh':[19],'Lakshadweep':[68],'Puducherry':[60],
-}
+const PINCODE_PREFIXES = {} // state-pincode matching disabled — only the 6-digit format is required
 
 const validPin = (pin, state) => {
   if (!pin || pin.length !== 6 || !state || !PINCODE_PREFIXES[state]) return true
@@ -88,6 +77,7 @@ function ValidInp({ valid, count, children }) {
 
 export default function PoliceClearanceCertificateForm() {
   const [step,  setStep]   = useState(1)
+  useStepBackButton(step, setStep)
   const [phase, setPhase]  = useState('form')
   const [error, setError]  = useState('')
 
@@ -120,6 +110,7 @@ export default function PoliceClearanceCertificateForm() {
   const [education,     setEducation]     = useState('')
   const [houseStreet,   setHouseStreet]   = useState('')
   const [addrState,     setAddrState]     = useState('')
+  const [district,      setDistrict]      = useState('')
   const [pinCode,       setPinCode]       = useState('')
   const [email,         setEmail]         = useState('')
   const [policeStation, setPoliceStation] = useState('')
@@ -197,6 +188,7 @@ export default function PoliceClearanceCertificateForm() {
     if (s === 3) {
       if (!houseStreet.trim())  return { msg: 'Please enter your house no. and street name.', step: 3 }
       if (!addrState)           return { msg: 'Please select your state.', step: 3 }
+      if (!district)            return { msg: 'Please select your district.', step: 3 }
       if (!pinCode || pinCode.length !== 6) return { msg: 'Please enter a valid 6-digit pin code.', step: 3 }
       if (!validPin(pinCode, addrState)) return { msg: `Pin code ${pinCode} is not valid for ${addrState}.`, step: 3 }
       if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)) return { msg: 'Please enter a valid email address.', step: 3 }
@@ -455,7 +447,7 @@ export default function PoliceClearanceCertificateForm() {
   return (
     <div className="pf5-page">
       <div className="pf5-breadcrumb">
-        <Link href="/">Home</Link><span> / </span><Link href="/police-clearance">Police Clearance Certificate</Link><span> / </span><span>Apply</span>
+        <Link href="/">Home</Link><span> / </span><Link href="/police-clearance">Police Clearance Certificate</Link><span> / </span><span>Form</span>
       </div>
       <div className="pf5-card">
 
@@ -570,9 +562,19 @@ export default function PoliceClearanceCertificateForm() {
               <Field label="State">
                 <ValidInp valid={addrState !== ''}>
                   <select className="pf5-inp" value={addrState}
-                    onChange={e => { setAddrState(e.target.value); setPinCode('') }}>
+                    onChange={e => { setAddrState(e.target.value); setDistrict(''); setPinCode('') }}>
                     <option value="">Select State</option>
                     {STATES.map(s => <option key={s}>{s}</option>)}
+                  </select>
+                </ValidInp>
+              </Field>
+              <Field label="District">
+                <ValidInp valid={district !== ''}>
+                  <select className="pf5-inp" value={district} disabled={!addrState}
+                    onChange={e => { setDistrict(e.target.value); setError('') }}
+                    style={!addrState ? { opacity: .5, cursor: 'not-allowed' } : {}}>
+                    <option value="">{addrState ? 'Select District' : 'Select state first'}</option>
+                    {getDistricts(addrState).map(d => <option key={d}>{d}</option>)}
                   </select>
                 </ValidInp>
               </Field>
