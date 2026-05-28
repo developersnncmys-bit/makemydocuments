@@ -3,8 +3,7 @@
 import { AlertCircle, ShieldCheck } from 'lucide-react'
 
 const CLAUSES = [
-  'Make My Documents is not a Government-run website, and the form provided is not the official registration form. It is solely designed to collect information from our clients to help our experts better understand their needs.',
-  'By proceeding with this website, you acknowledge and agree that Make My Documents is a private company managing this platform. We provide assistance and consultancy services based on the requests from our customers. The fees collected on this website include consultancy charges.',
+  'Make My Documents is not a Government-run website, and the form provided is not the official registration form. It is solely designed to collect information from our clients to help our experts better understand their needs. By proceeding with this website, you acknowledge and agree that Make My Documents is a private company managing this platform. We provide assistance and consultancy services based on the requests from our customers. The fees collected on this website include consultancy charges.',
 ]
 
 export default function Disclaimer() {

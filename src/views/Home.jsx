@@ -1,7 +1,6 @@
 'use client'
 
 import useScrollReveal from '@/hooks/useScrollReveal'
-import ProgressBar     from '@/components/ProgressBar'
 import Hero            from '@/components/Hero'
 import Marquee         from '@/components/Marquee'
 import HowItWorks      from '@/components/HowItWorks'
@@ -18,7 +17,6 @@ export default function Home() {
 
   return (
     <>
-      <ProgressBar />
       <Hero />
       <Marquee />
       <HowItWorks />
