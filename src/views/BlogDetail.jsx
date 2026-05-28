@@ -119,7 +119,7 @@ function ContactForm() {
         </select>
       </div>
       <button type="submit" className="bd-form-submit" disabled={loading}>
-        {loading ? 'Submitting…' : 'Get Free Consultation'}
+        {loading ? 'Submitting…' : 'Submit'}
       </button>
     </form>
   )
@@ -278,7 +278,7 @@ export default function BlogDetail() {
                 </div>
                 <div>
                   <h3 className="bd-contact-title">Contact Us</h3>
-                  <p className="bd-contact-subtitle">Free consultation, no commitment</p>
+                  {/* <p className="bd-contact-subtitle">Free consultation, no commitment</p> */}
                 </div>
               </div>
               <ContactForm />

@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import useStepBackButton from '../hooks/useStepBackButton'
 import Link from 'next/link'
 import {
   HeartPulse, FileText, Phone, Check, AlertCircle,
@@ -49,6 +50,7 @@ function ValidInp({ valid, count, children }) {
 
 export default function LifeInsuranceForm() {
   const [step,  setStep]  = useState(1)
+  useStepBackButton(step, setStep)
   const [phase, setPhase] = useState('form') // 'form' | 'otp' | 'success'
   const [error, setError] = useState('')
 
@@ -229,7 +231,7 @@ export default function LifeInsuranceForm() {
         <span> / </span>
         <Link href="/life-insurance">Life Insurance</Link>
         <span> / </span>
-        <span>Get Quote</span>
+        <span>Form</span>
       </div>
       <div className="pf5-card">
 

@@ -4,23 +4,16 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ReviewSlider from '../components/ReviewSlider'
 import {
-  ClipboardList, PenLine, Eye, CreditCard, Package,
+  ClipboardList, PenLine, Eye, CreditCard, Package, ChevronRight,
 } from 'lucide-react'
 import BlogCard from '../components/BlogCard'
+import { AFFIDAVIT_TYPES } from '../data/affidavitTypes'
 
 const I = ({ icon: Icon, size = 22, color = 'var(--teal)' }) => (
   <Icon size={size} color={color} strokeWidth={1.8} />
 )
 
 /* --- Data ------------------------------------------- */
-
-const AFFIDAVIT_TYPES = [
-  'Name Change Affidavit (Annexure E)',
-  'Name Change Affidavit for Minor',
-  'One and the Same Person Affidavit',
-  'Change of Signature Affidavit',
-  'Other',
-]
 
 const HOW_STEPS = [
   { Icon: ClipboardList, title: 'Register Online',  desc: 'Fill out your details and select your affidavit type securely on our platform.' },
@@ -87,8 +80,6 @@ function FAQItem({ q, a }) {
 
 /* --- Page ------------------------------------------- */
 export default function Affidavits() {
-  const [selectedType, setSelectedType] = useState('')
-
   return (
     <div className="svc-page">
 
@@ -143,27 +134,21 @@ export default function Affidavits() {
       <section className="ins-section-white">
         <div className="mx">
 
-          {/* Select Affidavit Dropdown */}
+          {/* Select Affidavit — each card opens its form */}
           <div style={{ maxWidth: 560, margin: '0 auto 52px' }}>
             <label style={{ display: 'block', fontWeight: 700, fontSize: 15, marginBottom: 10, color: 'var(--ink)' }}>
               Select Affidavit <span style={{ color: '#e53e3e' }}>*</span>
             </label>
-            <div style={{ position: 'relative' }}>
-              <select
-                value={selectedType}
-                onChange={e => setSelectedType(e.target.value)}
-                style={{
-                  width: '100%', padding: '14px 44px 14px 16px', fontSize: 15,
-                  border: '1.5px solid #d1d5db', borderRadius: 10,
-                  background: '#fff', color: selectedType ? 'var(--ink)' : '#6b7280',
-                  appearance: 'none', WebkitAppearance: 'none', cursor: 'pointer',
-                  outline: 'none', fontFamily: 'inherit', boxShadow: '0 1px 4px rgba(0,0,0,.06)',
-                }}
-              >
-                <option value="" disabled>Choose</option>
-                {AFFIDAVIT_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-              </select>
-              <div style={{ position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: '#6b7280', fontSize: 12 }}>▼</div>
+            <div className="pf5-plan-list">
+              {AFFIDAVIT_TYPES.map(({ slug, value, desc }) => (
+                <Link key={slug} href={`/affidavit/${slug}`} className="pf5-plan">
+                  <div className="pf5-plan-body">
+                    <div className="pf5-plan-name">{value}</div>
+                    <div className="pf5-plan-desc">{desc}</div>
+                  </div>
+                  <ChevronRight size={18} strokeWidth={2} color="var(--ink4)" style={{ flexShrink: 0 }} />
+                </Link>
+              ))}
             </div>
           </div>
 

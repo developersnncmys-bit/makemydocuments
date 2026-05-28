@@ -1,6 +1,7 @@
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import Nav         from '@/components/Nav'
 import Cursor      from '@/components/Cursor'
+import ProgressBar from '@/components/ProgressBar'
 import LayoutShell from './LayoutShell'
 import './globals.css'
 
@@ -19,9 +20,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jakarta.className}>
+      <body className={jakarta.className} suppressHydrationWarning>
         <Cursor />
         <Nav />
+        <ProgressBar />
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

@@ -62,8 +62,8 @@ const OPEN_ROLES = [
 const PERKS = [
   { Icon: IndianRupee, label: 'Competitive Pay',    text: 'Market-rate salaries reviewed every year, with performance bonuses.' },
   { Icon: TrendingUp,  label: 'Fast Growth',        text: 'Flat hierarchy — your impact is visible and promotions come quickly.' },
-  { Icon: GraduationCap, label: 'Learning Budget',  text: 'Annual upskilling allowance for courses, certifications and workshops.' },
-  { Icon: Laptop,      label: 'Flexible Work',      text: 'Hybrid work model — 3 days office, 2 days remote after probation.' },
+  // { Icon: GraduationCap, label: 'Learning Budget',  text: 'Annual upskilling allowance for courses, certifications and workshops.' },
+  // { Icon: Laptop,      label: 'Flexible Work',      text: 'Hybrid work model — 3 days office, 2 days remote after probation.' },
   { Icon: Coffee,      label: 'Great Culture',      text: 'Team lunches, celebrations, and a genuinely friendly work environment.' },
   { Icon: ShieldCheck, label: 'Health Cover',       text: 'Mediclaim insurance for you and your immediate family from day one.' },
 ]
@@ -76,8 +76,6 @@ const VALUES = [
 ]
 
 const STATS = [
-  { Icon: Users,    val: '50+',  lbl: 'Team Members'   },
-  { Icon: Star,     val: '4.8',  lbl: 'Glassdoor Score' },
   { Icon: TrendingUp, val: '3×', lbl: 'Growth in 2 yrs' },
   { Icon: Briefcase, val: '11+', lbl: 'Departments'     },
 ]

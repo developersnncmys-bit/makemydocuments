@@ -796,14 +796,10 @@ const DISTRICT_PINCODE_PREFIXES = {
   },
 }
 
-// Returns null if valid, or an error string if invalid
-export const validatePincode = (pincode, state, district) => {
+// Returns null if valid, or an error string if invalid.
+// Only the 6-digit format is required — state/district matching is intentionally not enforced.
+export const validatePincode = (pincode) => {
   if (!pincode) return 'Pincode is required'
   if (!/^\d{6}$/.test(pincode) || pincode[0] === '0') return 'Enter a valid 6-digit pincode'
-  if (!state || !district) return null
-  const prefixes = DISTRICT_PINCODE_PREFIXES[state]?.[district]
-  if (!prefixes) return null
-  const prefix = parseInt(pincode.substring(0, 3), 10)
-  if (!prefixes.includes(prefix)) return `Pincode doesn't match ${district}, ${state}`
   return null
 }
