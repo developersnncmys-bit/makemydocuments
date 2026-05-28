@@ -28,11 +28,11 @@ const CHIPS = [
 ]
 
 const PANEL_CARDS = [
-  { Icon: ShieldCheck,  bg: 'var(--teal-bg)',  name: 'Insurance Policies',          time: '⏱ Instant Policy',     price: 'Best Rates', badge: 'Most Popular', badgeCls: 'b-teal'  },
-  { Icon: Plane,        bg: 'var(--amber-bg)', name: 'Visa Assistance',              time: '⏱ Depends on country', price: '₹1,999+',    badge: 'Expert Help',  badgeCls: 'b-amber' },
-  { Icon: CreditCard,   bg: 'var(--green-bg)', name: 'PAN Card – New / Correction',  time: '⏱ 3–5 working days',   price: '₹350',       badge: 'Fast',         badgeCls: 'b-green' },
-  { Icon: BookOpen,     bg: 'var(--teal-bg)',  name: 'Passport – New / Renewal',     time: '⏱ 7–14 working days',  price: '₹2,499',     badge: 'Trusted',      badgeCls: 'b-teal'  },
-  { Icon: ClipboardCheck, bg: 'var(--green-bg)', name: 'PCC / PVC', time: '⏱ 5–10 working days', price: 'Best Rates', badge: 'Hassle Free', badgeCls: 'b-green' },
+  { Icon: ShieldCheck,  bg: 'var(--teal-bg)',  name: 'Insurance Policies',          time: '⏱ Instant Policy',     price: 'Best Rates', badge: 'Most Popular', badgeCls: 'b-teal',  path: '/insurance'        },
+  { Icon: Plane,        bg: 'var(--amber-bg)', name: 'Visa Assistance',              time: '⏱ Depends on country', price: '₹1,999+',    badge: 'Expert Help',  badgeCls: 'b-amber', path: '/tourist-visa'     },
+  { Icon: CreditCard,   bg: 'var(--green-bg)', name: 'PAN Card – New / Correction',  time: '⏱ 3–5 working days',   price: '₹350',       badge: 'Fast',         badgeCls: 'b-green', path: '/pan-card'         },
+  { Icon: BookOpen,     bg: 'var(--teal-bg)',  name: 'Passport – New / Renewal',     time: '⏱ 7–14 working days',  price: '₹2,499',     badge: 'Trusted',      badgeCls: 'b-teal',  path: '/passport'         },
+  { Icon: ClipboardCheck, bg: 'var(--green-bg)', name: 'PCC / PVC', time: '⏱ 5–10 working days', price: 'Best Rates', badge: 'Hassle Free', badgeCls: 'b-green', path: '/police-clearance' },
 ]
 
 const TRUST = [
@@ -125,8 +125,8 @@ export default function Hero() {
             </div>
           </div>
           <div className="panel-body">
-            {PANEL_CARDS.map(({ Icon, bg, name, time, price, badge, badgeCls }) => (
-              <div key={name} className="pcard" onClick={() => scrollTo('apply')}>
+            {PANEL_CARDS.map(({ Icon, bg, name, time, price, badge, badgeCls, path }) => (
+              <Link key={name} href={path} className="pcard">
                 <div className="pc-ico" style={{ background: bg }}>
                   <Icon size={20} strokeWidth={2} color="var(--teal-dk)" />
                 </div>
@@ -138,7 +138,7 @@ export default function Hero() {
                   <div className="pc-price">{price}</div>
                   {badge && <span className={`pc-badge ${badgeCls}`}>{badge}</span>}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

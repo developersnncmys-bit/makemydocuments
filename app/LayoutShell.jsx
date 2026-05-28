@@ -57,8 +57,9 @@ export default function LayoutShell({ children }) {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [pathname])
 
-  const showFooter = !NO_FOOTER_SET.has(pathname)
-  const showWaFab  = !NO_WA_FAB_SET.has(pathname)
+  const isAffidavitForm = pathname.startsWith('/affidavit/')
+  const showFooter = !NO_FOOTER_SET.has(pathname) && !isAffidavitForm
+  const showWaFab  = !NO_WA_FAB_SET.has(pathname) && !isAffidavitForm
 
   return (
     <>

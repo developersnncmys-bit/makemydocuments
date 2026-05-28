@@ -352,6 +352,7 @@ h4 { font-size: 13px; font-weight: 700; color: var(--ink2); letter-spacing: .1px
   display: flex; align-items: center; gap: 12px; margin-bottom: 9px;
   cursor: pointer; transition: all .22s var(--ease);
   position: relative; overflow: hidden;
+  text-decoration: none; color: inherit;
 }
 .pcard::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
@@ -564,6 +565,12 @@ section { padding: 96px 5%; }
 .tick  { color: var(--green);  font-size: 16px; font-weight: 800; }
 .cross { color: #EF4444; font-size: 16px; }
 .maybe { font-size: 12px; font-weight: 600; color: #D97706; }
+@media (max-width: 560px) {
+  .cmp-col   { padding: 10px 8px; }
+  .cmp-cell  { padding: 11px 8px; font-size: 12px; }
+  .cmp-col-val { font-size: 11.5px; }
+  .cmp-col-lbl { font-size: 8px; letter-spacing: .8px; }
+}
 
 .trust-cards { display: flex; flex-direction: column; gap: 14px; }
 .tc {
@@ -825,7 +832,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 }
 .f-brand { display: flex; flex-direction: column; align-items: flex-start; }
 .f-logo-img {
-  height: 100px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   margin-bottom: 6px;
@@ -2895,6 +2902,7 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
   padding: 14px 16px; border: 1.5px solid #E4E8F4;
   border-radius: 14px; background: #FAFBFF; cursor: pointer;
   transition: border-color .18s, background .18s, box-shadow .18s;
+  text-decoration: none; color: inherit;
 }
 .pf5-plan:hover { border-color: #B8C8E8; box-shadow: 0 2px 12px rgba(46,104,177,.08); }
 .pf5-plan.sel   { box-shadow: 0 4px 16px rgba(46,104,177,.1); }
@@ -3066,7 +3074,8 @@ footer { background: var(--teal-dk); padding: 60px 5% 28px; border-top: 1px soli
 .pf5-cta-btn.pf5-pay:hover { box-shadow: 0 6px 22px rgba(22,163,74,.4); }
 
 .pf5-back-link {
-  display: flex; align-items: center; justify-content: flex-start; gap: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  width: 100%;
   background: none; border: none; font-family: inherit;
   font-size: 13px; font-weight: 600; color: #8A98B8;
   cursor: pointer; transition: color .18s;
